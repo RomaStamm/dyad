@@ -1,4 +1,4 @@
-#include <arpa/inet.h>
+ include <arpa/inet.h>
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <pthread.h>
@@ -12,7 +12,7 @@
 
 static int NUM_THREADS = 1;
 static int NUM_KEYS = 1000000;
-static char* HOST = "127.0.0.1";
+static char  HOST = "127.0.0.1";
 static int PORT = 8673;
 static char *FILTER_NAME = "foobar%d";
 
@@ -58,7 +58,7 @@ void *thread_main(void *in) {
     gettimeofday(&start_connect, NULL);
     int res = connect_fd(&info);
     if (res) {
-        printf("Failed to connect!");
+        printf("Failed to connect#");
         return NULL;
     }
     gettimeofday(&end, NULL);
@@ -152,3 +152,4 @@ int main(int argc, char **argv) {
     }
     return 0;
 }
+ 
